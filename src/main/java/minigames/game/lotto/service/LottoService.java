@@ -1,6 +1,9 @@
 package minigames.game.lotto.service;
 
 
+import minigames.game.lotto.model.Lotto;
+
+import java.io.IOException;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -9,6 +12,14 @@ public class LottoService {
     private static final int LOW_BOUND = 1;
     private static final int HIGH_BOUND = 99;
     private static final int LIMIT_NUMBERS = 6;
+
+
+    public Lotto playRound(Set<Integer> userNumber) throws IOException {
+        Set<Integer> drawNumbers = drawNumbers();
+        int matchedCount = checkWin(drawNumbers, userNumber);
+
+        return new Lotto(drawNumbers, userNumber, matchedCount);
+    }
 
 
     private Set<Integer> drawNumbers() {
