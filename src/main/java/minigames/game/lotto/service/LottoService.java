@@ -3,7 +3,6 @@ package minigames.game.lotto.service;
 
 import minigames.game.lotto.model.Lotto;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
@@ -15,7 +14,7 @@ public class LottoService {
     private static final int LIMIT_NUMBERS = 6;
 
 
-    public Lotto playRound(Set<Integer> userNumber) throws IOException {
+    public Lotto playRound(Set<Integer> userNumber) {
         Set<Integer> drawNumbers = drawNumbers();
         int matchedCount = checkWin(drawNumbers, userNumber);
 

@@ -5,7 +5,6 @@ import minigames.game.lotto.messaging.Message;
 import minigames.game.lotto.model.Lotto;
 import minigames.game.lotto.service.LottoService;
 
-import java.io.IOException;
 import java.util.Set;
 
 
@@ -20,7 +19,7 @@ public class LottoController {
         this.message = message;
     }
 
-    public void run() throws IOException {
+    public void run() {
         message.showMessage("Welcome to Lotto!");
         Set<Integer> numberFromPlayer = inputData.input();
         Lotto lotto = lottoService.playRound(numberFromPlayer);
