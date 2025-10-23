@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class LottoConfig {
 
-    public void lottoGame() throws IOException {
+    public void start() throws IOException {
         ConsoleMessage consoleMessage = new ConsoleMessage();
         InputConsole inputConsole = new InputConsole();
         LottoService lottoService = new LottoService();
