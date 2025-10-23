@@ -17,7 +17,7 @@ public class InputConsole implements InputData {
     }
 
     @Override
-    public Set<Integer> input() {
+    public Set<Integer> getNumbersFromPlayer() {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Set<Integer> playerNumber = new HashSet<>();
         for (int i = 0; i < LIMIT_NUMBERS; i++) {
