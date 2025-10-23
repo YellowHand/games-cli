@@ -1,32 +1,31 @@
 package minigames.game.lotto.controller;
 
+import minigames.game.lotto.input.InputData;
+import minigames.game.lotto.messaging.Message;
+import minigames.game.lotto.model.Lotto;
 import minigames.game.lotto.service.LottoService;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.HashSet;
 import java.util.Set;
+
 
 public class LottoController {
     private final LottoService lottoService;
-    private static final int LIMIT_NUMBERS = 6;
+    private final InputData inputData;
+    private final Message message;
 
-    public LottoController(LottoService lottoService) {
+    public LottoController(LottoService lottoService, InputData inputData, Message message) {
         this.lottoService = lottoService;
+        this.inputData = inputData;
+        this.message = message;
     }
 
     public void run() throws IOException {
-        lottoService.playRound(getNumberFromPlayer());
+        message.showMessage("Welcome to Lotto!");
+        Set<Integer> numberFromPlayer = inputData.input();
+        Lotto lotto = lottoService.playRound(numberFromPlayer);
+        message.showMessage(lotto.toString());
     }
 
-    private Set<Integer> getNumberFromPlayer() throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        Set<Integer> playerNumber = new HashSet<>();
-        for (int i = 0; i < LIMIT_NUMBERS; i++) {
-            playerNumber.add(Integer.valueOf(bufferedReader.readLine()));
-        }
-        return playerNumber;
-    }
     
 }
