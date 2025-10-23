@@ -21,7 +21,7 @@ public class LottoController {
 
     public void run() {
         message.showMessage("Welcome to Lotto!");
-        Set<Integer> numberFromPlayer = inputData.input();
+        Set<Integer> numberFromPlayer = inputData.getNumbersFromPlayer();
         Lotto lotto = lottoService.playRound(numberFromPlayer);
         message.showMessage(lotto.toString());
     }
