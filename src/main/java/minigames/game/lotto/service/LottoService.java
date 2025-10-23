@@ -23,7 +23,7 @@ public class LottoService {
 
 
     private Set<Integer> drawNumbers() {
-        return new Random().ints(LOW_BOUND, HIGH_BOUND).limit(LIMIT_NUMBERS).boxed().collect(Collectors.toSet());
+        return new Random().ints(LOW_BOUND, HIGH_BOUND).distinct().limit(LIMIT_NUMBERS).boxed().collect(Collectors.toSet());
     }
 
     private int checkWin(Set<Integer> drawNumbers, Set<Integer> numbersPlayer) {
