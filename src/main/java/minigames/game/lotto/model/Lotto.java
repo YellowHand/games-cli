@@ -13,6 +13,6 @@ public class Lotto {
 
     @Override
     public String toString() {
-        return String.format("Draw numbers: %s%n Your numbers: %s%n Matched: %s%n", drawNumbers, playerNumbers, matchedCount);
+        return String.format("Draw numbers: %s%nYour numbers: %s%nMatched: %s%n", drawNumbers, playerNumbers, matchedCount);
     }
 }
