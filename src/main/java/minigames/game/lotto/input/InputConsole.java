@@ -25,6 +25,7 @@ public class InputConsole implements InputData {
 
         while (playerNumber.size() < LIMIT_NUMBERS) {
                 try {
+                    message.showMessage("Insert number: ");
                     String s = bufferedReader.readLine();
                     int number = Integer.parseInt(s);
                     validatorNumbers(number, playerNumber);
