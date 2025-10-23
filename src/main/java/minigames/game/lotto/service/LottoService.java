@@ -4,6 +4,7 @@ package minigames.game.lotto.service;
 import minigames.game.lotto.model.Lotto;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -27,8 +28,9 @@ public class LottoService {
     }
 
     private int checkWin(Set<Integer> drawNumbers, Set<Integer> numbersPlayer) {
-        drawNumbers.retainAll(numbersPlayer);
-        return drawNumbers.size();
+        Set<Integer> draw = new HashSet<>(drawNumbers);
+        draw.retainAll(numbersPlayer);
+        return draw.size();
     }
 
 }
