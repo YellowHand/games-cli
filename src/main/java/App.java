@@ -1,9 +1,10 @@
+import minigames.Game;
 import minigames.game.lotto.config.LottoConfig;
 
 public class App {
 
     public static void main(String[] args) {
-        LottoConfig lottoConfig = new LottoConfig();
-        lottoConfig.start();
+        Game lotto = new LottoConfig().createGame();
+        lotto.play();
     }
 }

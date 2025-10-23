@@ -3,7 +3,6 @@ package minigames.game.lotto;
 import minigames.Game;
 import minigames.game.lotto.controller.LottoController;
 
-import java.io.IOException;
 
 public class LottoGame implements Game {
     private final LottoController lottoController;
@@ -13,7 +12,7 @@ public class LottoGame implements Game {
     }
 
     @Override
-    public void play() throws IOException {
+    public void play() {
         lottoController.run();
     }
 
