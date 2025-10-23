@@ -32,7 +32,7 @@ public class InputConsole implements InputData {
                 } catch (NumberFormatException e) {
                     message.showMessage("Insert number!");
                 } catch (InvalidNumberException | DuplicateNumberException e) {
-                    message.showMessage("Insert correct number!");
+                    message.showMessage(e.getMessage());
                 } catch (IOException e) {
                     message.showMessage("Error reading input!");
                 }
