@@ -70,7 +70,7 @@ class LottoServicePlayRoundTest {
         //then
         assertThat(result.getMatchedCount()).isEqualTo(expected);
         assertThat(result.getPlayerNumbers()).containsExactlyInAnyOrderElementsOf(playerNumbers);
-        verify(mockRandom).ints(eq(1), eq(100));
+        verify(mockRandom).ints(1, 100);
     }
 
     @Test
