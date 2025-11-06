@@ -14,7 +14,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 class LottoServicePlayRoundTest {
@@ -77,7 +76,7 @@ class LottoServicePlayRoundTest {
     @DisplayName("UNIT: should correctly handle empty user numbers with no matches")
     void shouldHandleEmptyUserNumbersCorrectly() {
         // given
-        when(mockRandom.ints(eq(1), eq(100)))
+        when(mockRandom.ints(1, 100))
                 .thenAnswer(inv -> Arrays.stream(new int[]{1, 2, 3, 4, 5, 6}));
 
         Set<Integer> player = Set.of();
