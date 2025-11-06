@@ -10,9 +10,17 @@ import java.util.stream.Collectors;
 
 public class LottoService {
     private static final int LOW_BOUND = 1;
-    private static final int HIGH_BOUND = 99;
+    private static final int HIGH_BOUND = 100;
     private static final int LIMIT_NUMBERS = 6;
+    private final Random random;
 
+    public LottoService() {
+        this(new Random());
+    }
+
+    public LottoService(Random random) {
+        this.random = random;
+    }
 
     public Lotto playRound(Set<Integer> userNumber) {
         Set<Integer> drawNumbers = drawNumbers();
@@ -23,7 +31,7 @@ public class LottoService {
 
 
     private Set<Integer> drawNumbers() {
-        return new Random().ints(LOW_BOUND, HIGH_BOUND).distinct().limit(LIMIT_NUMBERS).boxed().collect(Collectors.toSet());
+        return random.ints(LOW_BOUND, HIGH_BOUND).distinct().limit(LIMIT_NUMBERS).boxed().collect(Collectors.toSet());
     }
 
     private int checkWin(Set<Integer> drawNumbers, Set<Integer> numbersPlayer) {
