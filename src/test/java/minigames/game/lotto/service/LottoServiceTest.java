@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 class LottoServiceTest {
@@ -53,8 +54,8 @@ class LottoServiceTest {
     @DisplayName("UNIT: should correctly count matched numbers for various player inputs")
     void shouldCalculateCorrectMatchCount(String draw, String player, int expected) {
         //given
-        when(mockRandom.ints(Mockito.anyInt(), Mockito.anyInt()))
-                .thenAnswer(invocation -> Arrays.stream(draw.split(","))
+        given(mockRandom.ints(Mockito.anyInt(), Mockito.anyInt()))
+                .willAnswer(invocation -> Arrays.stream(draw.split(","))
                         .map(String::trim)
                         .mapToInt(Integer::parseInt));
 
@@ -76,8 +77,8 @@ class LottoServiceTest {
     @DisplayName("UNIT: should correctly handle empty user numbers with no matches")
     void shouldHandleEmptyUserNumbersCorrectly() {
         // given
-        when(mockRandom.ints(1, 100))
-                .thenAnswer(inv -> Arrays.stream(new int[]{1, 2, 3, 4, 5, 6}));
+        given(mockRandom.ints(1, 100))
+                .willAnswer(inv -> Arrays.stream(new int[]{1, 2, 3, 4, 5, 6}));
 
         Set<Integer> player = Set.of();
 
@@ -94,8 +95,8 @@ class LottoServiceTest {
     @DisplayName("UNIT: should draw 6 unique numbers even if generator give duplicates")
     void shouldDrawSixUniqueNumbersEvenIfGeneratorGiveDuplicates() {
         // given
-        when(mockRandom.ints(1, 100))
-                .thenReturn(Arrays.stream(new int[]{1,1,1,2,2,3,4,5,6,7}));
+        given(mockRandom.ints(1, 100))
+                .willReturn(Arrays.stream(new int[]{1,1,1,2,2,3,4,5,6,7}));
 
         // when
         Lotto result = service.playRound(Set.of());
