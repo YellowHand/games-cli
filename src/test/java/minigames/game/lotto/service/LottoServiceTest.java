@@ -2,7 +2,6 @@ package minigames.game.lotto.service;
 
 import minigames.game.lotto.model.Lotto;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -29,7 +28,6 @@ class LottoServiceTest {
     }
 
     @Test
-    @DisplayName("INTEGRATION: playRound() should return valid Lotto object")
     void shouldPlayRoundAndReturnLottoResult() {
         // given
         LottoService lottoService = new LottoService();
@@ -51,7 +49,6 @@ class LottoServiceTest {
             "1,2,3,4,5,6;1,2,3,10,20,30;3",
             "1,2,3,4,5,6;10,20,30,40,50,60;0"
     })
-    @DisplayName("UNIT: should correctly count matched numbers for various player inputs")
     void shouldCalculateCorrectMatchCount(String draw, String player, int expected) {
         //given
         given(mockRandom.ints(Mockito.anyInt(), Mockito.anyInt()))
@@ -74,7 +71,6 @@ class LottoServiceTest {
     }
 
     @Test
-    @DisplayName("UNIT: should correctly handle empty user numbers with no matches")
     void shouldHandleEmptyUserNumbersCorrectly() {
         // given
         given(mockRandom.ints(1, 100))
@@ -92,7 +88,6 @@ class LottoServiceTest {
     }
 
     @Test
-    @DisplayName("UNIT: should draw 6 unique numbers even if generator give duplicates")
     void shouldDrawSixUniqueNumbersEvenIfGeneratorGiveDuplicates() {
         // given
         given(mockRandom.ints(1, 100))
