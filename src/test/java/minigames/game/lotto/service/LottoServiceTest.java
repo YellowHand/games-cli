@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
-class LottoServicePlayRoundTest {
+class LottoServiceTest {
 
     private Random mockRandom;
     private LottoService service;
